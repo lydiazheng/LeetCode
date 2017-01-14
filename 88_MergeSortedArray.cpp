@@ -7,7 +7,7 @@ You may assume that nums1 has enough space (size that is greater or equal to m +
  initialized in nums1 and nums2 are m and n respectively.
 */
 
- class Solution {
+class Solution {
 public:
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
         int k = m+n-1;
