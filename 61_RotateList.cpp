@@ -14,19 +14,28 @@ return 4->5->1->2->3->NULL.
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
 class Solution {
 public:
     ListNode* rotateRight(ListNode* head, int k) {
+        if(k == 0 || head == NULL || head->next == NULL)  return head;
         ListNode* fast = head; ListNode* slow = head; ListNode* res = head;
-        if(head == NULL || k < 0) return NULL;
+
         int length = 0;
         while(fast != NULL){
             fast = fast->next;
             length++;
         }
-        if(k == 0 || length == 1 || k%length == 0) return head;
+        if(k%length == 0) return head;
         fast = head;
-        for(int i = 0; i < k%length; i++) fast = fast->next;
+        for(int i = 0; i < k%length; i++) fast = fast->next;   
 
         while(fast->next != NULL){
             slow = slow->next;
